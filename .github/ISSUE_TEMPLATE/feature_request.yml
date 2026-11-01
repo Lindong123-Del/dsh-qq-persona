@@ -1,0 +1,32 @@
+name: 功能建议
+description: 提出一个改进想法
+labels: [enhancement]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        请先确认这个建议符合项目的定位：**本机自托管、单人使用、隐私优先**。
+        多用户服务、群聊机器人、云端部署、自动加好友一类的方向通常不在范围内。
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: 你想解决什么问题
+      description: 描述场景，而不是直接给方案
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: 你设想的做法
+    validations:
+      required: false
+
+  - type: textarea
+    id: privacy
+    attributes:
+      label: 对隐私边界的影响
+      description: 会不会新增对外请求、跨联系人数据流动或额外的落盘内容？
+    validations:
+      required: true

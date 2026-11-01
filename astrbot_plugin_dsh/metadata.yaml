@@ -1,0 +1,17 @@
+name: astrbot_plugin_dsh
+display_name: DSH 人格桥
+short_desc: 将获准联系人的 QQ 私聊交给本机 dsh-qq-persona。
+desc: |
+  基于上游修改的人格模式桥，需配套 dsh-qq-persona。
+  默认 persona_mode 开启，接管白名单联系人的私聊文本与图片，不开放群聊。
+version: 0.3.23
+author: CCYellowStar2 (upstream); modified fork
+astrbot_version: ">=4.16"
+support_platforms:
+  - aiocqhttp
+tags:
+  - dsh
+  - deepseek-harness
+  - persona
+  - qq
+  - bridge

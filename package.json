@@ -1,0 +1,64 @@
+{
+  "name": "dsh-qq-persona",
+  "version": "0.11.1",
+  "description": "QQ private-chat persona bridge for DeepSeek Harness, with per-contact memory, recovery cards and a sealed journal.",
+  "license": "MIT",
+  "author": "userlindong",
+  "contributors": [
+    "CCYellowStar2 (upstream bridge implementation, MIT)"
+  ],
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./pure": "./lib/pure.js",
+    "./persona": "./lib/persona.js",
+    "./memory": "./lib/memory.js",
+    "./continuity": "./lib/continuity.js",
+    "./qzone": "./lib/qzone.js",
+    "./stickers": "./lib/stickers.js",
+    "./package.json": "./package.json"
+  },
+  "engines": {
+    "node": ">=22.13"
+  },
+  "scripts": {
+    "test": "node test/persona.test.js && node test/pure.test.js && node test/fetchfile.test.js && node test/memory.test.js && node test/qzone.test.js && node test/stickers.test.js && node test/continuity.test.js && node test/context.test.js",
+    "memory": "node scripts/memory-cli.mjs"
+  },
+  "files": [
+    "lib",
+    "scripts",
+    "templates",
+    "docs/continuity-template.md",
+    "examples",
+    "astrbot_plugin_dsh",
+    "cordis.patch.yml",
+    "README.md",
+    "README.en.md",
+    "安装与使用说明.md",
+    "脱敏说明.md",
+    "CHANGELOG.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "astrbot",
+    "astrbot-plugin",
+    "onebot",
+    "napcat",
+    "qq",
+    "persona",
+    "chatbot"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "*"
+  }
+}

@@ -1,0 +1,61 @@
+# 空白配置：安装前填写你自己的 provider / model。
+# 本文件是插件的 DSH bundle patch，不是完整的 profile 配置。
+- insert:
+    - id: dsh-qq-persona
+      name: dsh-qq-persona
+      config:
+        host: 127.0.0.1
+        port: 3188
+        allowPrivate: true
+        allowGroup: false
+        maxBodyBytes: 262144
+        maxMessageChars: 1200
+        # 必填：DSH 中已配置的 provider ID 和 model ID。API key 在 DSH 中自行配置。
+        provider: YOUR_DSH_PROVIDER_ID
+        model: YOUR_MODEL_ID
+        personaName: QQ 伙伴
+        addressContact: 先生
+        addressMaster: 主人
+        selfCardPath: qq-bridge/self/self.card.md
+        selfModelPath: qq-bridge/self/self.json
+        masterSecretsPath: qq-bridge/secrets.json
+        # 空表只允许 secrets.json 的 master_uin；其他联系人需分别加入两端名单。
+        allowUsers: []
+        allowGroups: []
+        memoryDir: qq-bridge/memory
+        auditPath: qq-bridge/audit.ndjson
+        memoryDbPath: qq-bridge/memory.sqlite
+        memoryRecentDays: 7
+        memoryRecentLimit: 50
+        memoryRenderChars: 1800
+        memoryPromptChars: 1400
+        memoryRecentRenderLimit: 8
+        contextAutoCompact: true
+        contextMaxTokens: 12000
+        contextMaxTurns: 12
+        # 对外发布功能默认关闭；启用前配置自己的 NapCat HTTP token。
+        qzoneEnabled: false
+        qzoneApiUrl: http://127.0.0.1:5700
+        qzoneUgcRight: 64
+        qzoneMaxChars: 500
+        qzoneDailyLimit: 1
+        qzoneStatePath: qq-bridge/qzone-state.json
+        # 私人日记会产生模型调用；不需要时设为 false。
+        journalEnabled: true
+        journalHour: 0
+        journalMinute: 0
+        journalPublishState: true
+        journalTemplatePath: ''
+        recoveryTemplatePath: ''
+        inboundMediaDir: qq-bridge/media/inbound
+        inboundImageMaxMb: 5
+        inboundImageMaxCount: 4
+        # 本仓库不附带任何媒体；生成自己的表情包后再开启。
+        stickerEnabled: false
+        stickerDir: qq-bridge/stickers
+        stickerCooldownSec: 30
+        stickerDailyLimit: 20
+        stickerStatePath: qq-bridge/sticker-state.json
+        stickerMaxBytes: 524288
+        privateSendEnabled: false
+        privateSendDailyLimit: 5

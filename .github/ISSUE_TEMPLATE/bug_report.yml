@@ -1,0 +1,76 @@
+name: Bug 报告
+description: 报告一个可复现的问题
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        感谢反馈。提交前请先看 [安装与使用说明](安装与使用说明.md) 第 10 节的常见问题表，以及 `Invoke-RestMethod 'http://127.0.0.1:3188/health'` 的输出。
+
+        **请勿粘贴真实 QQ 号、token、聊天记录或日记正文。** 用 `12345…` 之类的占位符复现。
+
+  - type: input
+    id: version
+    attributes:
+      label: 版本
+      description: `cordis.patch.yml` 或 `/health` 里显示的版本号
+      placeholder: 0.11.1
+    validations:
+      required: true
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: 出问题的环节
+      options:
+        - 插件加载 / /health
+        - 模型调用
+        - QQ 收发（NapCat / OneBot）
+        - AstrBot 桥接
+        - 记忆 / 恢复卡
+        - 日记 / 状态继承
+        - 启动器脚本
+        - 其他
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: 复现步骤
+      placeholder: |
+        1. ...
+        2. ...
+        3. 实际结果 ...
+      render: text
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: 期望结果
+    validations:
+      required: true
+
+  - type: textarea
+    id: env
+    attributes:
+      label: 环境
+      description: 操作系统、Node / Python 版本、DSH / AstrBot / NapCat 版本、是否 Docker
+      placeholder: |
+        Windows 11 23H2
+        Node 24.x, Python 3.12
+        DSH ?, AstrBot 4.16, NapCat ?
+        同机同账户，无 Docker
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: 日志
+      description: 相关片段即可；请自行抹掉路径、QQ 号和 token
+      render: text
+    validations:
+      required: false
