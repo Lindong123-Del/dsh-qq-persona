@@ -11,8 +11,10 @@ permissions:
 
 jobs:
   test:
-    name: Test (Node ${{ matrix.node }})
-    runs-on: ubuntu-latest
+    # 本项目只支持 Windows（DSH 桌面版 + PowerShell 启动器 + Windows 路径语义），
+    # 测试夹具里也使用 C:\ 与 D:\ 形式的路径，因此只在 Windows 上跑。
+    name: Test (Windows, Node ${{ matrix.node }})
+    runs-on: windows-latest
     strategy:
       fail-fast: false
       matrix:
@@ -29,7 +31,7 @@ jobs:
 
   syntax:
     name: Syntax check
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     steps:
       - uses: actions/checkout@v4
 
@@ -42,9 +44,11 @@ jobs:
           python-version: '3.12'
 
       - name: JavaScript syntax
+        shell: bash
         run: |
           for f in $(git ls-files '*.js' '*.mjs'); do node --check "$f"; done
 
       - name: Python syntax
+        shell: bash
         run: |
           for f in $(git ls-files '*.py'); do python -m py_compile "$f"; done
